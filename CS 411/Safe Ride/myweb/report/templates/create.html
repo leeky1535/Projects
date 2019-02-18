@@ -1,0 +1,15 @@
+{% extends "simple.html" %}
+
+{% block content %}
+
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <table class="table">
+                {{ form.as_table }}
+            </table>
+            <button type="submit">submit</button>
+        </form>
+   </div>
+
+{% endblock content %}

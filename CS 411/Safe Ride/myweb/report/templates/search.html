@@ -1,0 +1,368 @@
+{% extends "simple.html" %}
+
+
+{% block content %}
+
+    <div>
+        <form action="" method="POST">
+            {% csrf_token %}
+
+
+            <table class="table">
+                {{form}}
+            </table>
+            
+            <button type="submit">search</button>
+        </form>
+   </div>
+
+
+
+<!-- GOOGLE MAP SECTION -->
+<input id="origin-input" class="controls" type="text"
+        placeholder="Enter an origin location">
+    <input id="destination-input" class="controls" type="text"
+        placeholder="Enter a destination location">
+    <div id="mode-selector" class="controls">
+      <input type="radio" name="type" id="changemode-walking" checked="checked">
+      <label for="changemode-walking">Walking</label>
+
+      <input type="radio" name="type" id="changemode-transit">
+      <label for="changemode-transit">Transit</label>
+
+      <input type="radio" name="type" id="changemode-driving">
+      <label for="changemode-driving">Driving</label>
+    </div>
+    <div id="map" style="width:1000px;height:600px" class="mapcenter"></div>
+        <div id="floating-panel">
+      <button onclick="toggleHeatmap()">Toggle Heatmap</button>
+      <button onclick="changeGradient()">Change gradient</button>
+      <button onclick="changeRadius()">Change radius</button>
+      <button onclick="changeOpacity()">Change opacity</button>
+    </div>
+    <div id="map"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQcjAT-V_gbvf_bqzOutqKaQNbcZOL6Mo&libraries=places"></script>
+
+    <script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQcjAT-V_gbvf_bqzOutqKaQNbcZOL6Mo&libraries=places">
+  var map, heatmap;
+  var map, 
+      heatmap,
+      startLatLng, //change this to some value near to where the map will end up
+      allMarkers = []
+      ; //keep a global copy of your markers
+
+          var minfo = [
+          {% for mpoint in data %}
+           "{{ mpoint.address }}", "{{ mpoint.date }}", "{{ mpoint.description }}", "{{ mpoint.location_desc }}", {{ mpoint.latitude }}, {{ mpoint.longitude }},
+          {% endfor%}
+
+      ];  
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          mapTypeControl: false,
+          center: {lat: 41.8781, lng: -87.6298},
+          zoom: 11
+        });
+        new AutocompleteDirectionsHandler(map);
+
+          heatmap = new google.maps.visualization.HeatmapLayer({
+          data: getPoints(),
+          map: map
+        });
+
+    var infowindow = new google.maps.InfoWindow({ maxWidth: 320 });
+
+    var i=0;
+    while(i<minfo.length){
+
+
+        // for (var i = 0; i < minfo.length; i++) {    
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(minfo[i+4], minfo[i+5]),
+                // position: new google.maps.LatLng(41.8781, -87.6298),
+
+                // position: locations,
+                // position: getPoints(),
+                map: map,
+                // title: minfo[i]
+                optimized: false,
+  icon: new google.maps.MarkerImage('FF4D00-0.8.png')
+
+
+
+
+            });
+
+            google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                return function () {
+                    infowindow.setContent("<p>" + '<b>'+minfo[i]+'</b>' +"<br />"+ minfo[i+1] +"<br />"+ minfo[i+2] +"<br />"+ minfo[i+3]+"<p>");
+                    infowindow.open(map, marker);
+                    // infowindow.open(map);
+                }
+            })(marker, i)); 
+
+
+
+             i = i+6;
+
+          }
+      
+      }
+
+       /**
+        * @constructor
+       */
+      function AutocompleteDirectionsHandler(map) {
+        this.map = map;
+        this.originPlaceId = null;
+        this.destinationPlaceId = null;
+        this.travelMode = 'WALKING';
+        var originInput = document.getElementById('origin-input');
+        var destinationInput = document.getElementById('destination-input');
+        var modeSelector = document.getElementById('mode-selector');
+        this.directionsService = new google.maps.DirectionsService;
+        this.directionsDisplay = new google.maps.DirectionsRenderer;
+        this.directionsDisplay.setMap(map);
+
+        var originAutocomplete = new google.maps.places.Autocomplete(
+            originInput, {placeIdOnly: true});
+        var destinationAutocomplete = new google.maps.places.Autocomplete(
+            destinationInput, {placeIdOnly: true});
+
+        this.setupClickListener('changemode-walking', 'WALKING');
+        this.setupClickListener('changemode-transit', 'TRANSIT');
+        this.setupClickListener('changemode-driving', 'DRIVING');
+
+        this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
+        this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
+
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
+      }
+
+      // Sets a listener on a radio button to change the filter type on Places
+      // Autocomplete.
+      AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) {
+        var radioButton = document.getElementById(id);
+        var me = this;
+        radioButton.addEventListener('click', function() {
+          me.travelMode = mode;
+          me.route();
+        });
+      };
+
+      AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) {
+        var me = this;
+        autocomplete.bindTo('bounds', this.map);
+        autocomplete.addListener('place_changed', function() {
+          var place = autocomplete.getPlace();
+          if (!place.place_id) {
+            window.alert("Please select an option from the dropdown list.");
+            return;
+          }
+          if (mode === 'ORIG') {
+            me.originPlaceId = place.place_id;
+          } else {
+            me.destinationPlaceId = place.place_id;
+          }
+          me.route();
+        });
+
+      };
+
+      AutocompleteDirectionsHandler.prototype.route = function() {
+        if (!this.originPlaceId || !this.destinationPlaceId) {
+          return;
+        }
+        var me = this;
+
+        this.directionsService.route({
+          origin: {'placeId': this.originPlaceId},
+          destination: {'placeId': this.destinationPlaceId},
+          travelMode: this.travelMode
+        }, function(response, status) {
+          if (status === 'OK') {
+            me.directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      };
+
+
+//Heatmap function
+
+            function toggleHeatmap() {
+        heatmap.setMap(heatmap.getMap() ? null : map);
+      }
+
+      function changeGradient() {
+        var gradient = [
+          'rgba(0, 255, 255, 0)',
+          'rgba(0, 255, 255, 1)',
+          'rgba(0, 191, 255, 1)',
+          'rgba(0, 127, 255, 1)',
+          'rgba(0, 63, 255, 1)',
+          'rgba(0, 0, 255, 1)',
+          'rgba(0, 0, 223, 1)',
+          'rgba(0, 0, 191, 1)',
+          'rgba(0, 0, 159, 1)',
+          'rgba(0, 0, 127, 1)',
+          'rgba(63, 0, 91, 1)',
+          'rgba(127, 0, 63, 1)',
+          'rgba(191, 0, 31, 1)',
+          'rgba(255, 0, 0, 1)'
+        ]
+        heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
+      }
+
+      function changeRadius() {
+        heatmap.set('radius', heatmap.get('radius') ? null : 40);
+      }
+
+      function changeOpacity() {
+        heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
+      }
+
+    var locations = [
+          {% for point in data %}
+           {{ point.latitude }}, {{ point.longitude }},
+          {% endfor%}
+
+      ];
+      var array = [];
+
+      
+      function getPoints() {
+          for (i = 0;i <locations.length; i ++) {
+              array.push(new google.maps.LatLng(locations[i], locations[i+1]));
+              i++;
+          }
+          return array;
+      }
+
+    
+
+
+    </script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQcjAT-V_gbvf_bqzOutqKaQNbcZOL6Mo&libraries=places,visualization, &callback=initMap"
+        async defer></script>
+
+
+
+
+
+        <!-- VISUALIZATION SECTION -->
+<div class='with-3d-shadow with-transitions'>
+    <svg id="test1" class="mypiechart"></svg>
+
+<div id="chart" class='with-3d-shadow with-transitions'>
+    <svg></svg>
+</div>
+<script>
+    var testdata = [
+      {% for key, value in data.items %}
+      {key: "{{key}}", y: {{value}}},
+      {% endfor %}
+
+    ];
+    var height = 750;
+    var width = 750;
+    var chart1;
+    nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .x(function(d) { return d.key })
+            .y(function(d) { return d.y })
+            .width(width)
+            .height(height)
+            .showTooltipPercent(true);
+        d3.select("#test1")
+            .datum(testdata)
+            .transition().duration(1200)
+            .attr('width', width)
+            .attr('height', height)
+            .call(chart);      
+        return chart;
+    });
+
+    nv.addGraph(function() {
+    var chart = nv.models.lineWithFocusChart();
+    chart.xAxis.axisLabel('Time (ms)').tickFormat(function(d) {return d3.time.format('%Y-%m')(new Date(d))});
+    chart.xScale(d3.time.scale());
+    chart.x2Axis.tickFormat(function(d) {return d3.time.format('%m-%y')(new Date(d))});
+    chart.yTickFormat(d3.format(',.2f'));
+    chart.useInteractiveGuideline(true);
+    d3.select('#chart svg')
+        .datum(linedata())
+        .call(chart);
+    nv.utils.windowResize(chart.update);
+    return chart;
+  });
+
+
+    function linedata() {
+
+      //Data is represented as an array of {x,y} pairs.
+      //Line chart data should be sent as an array of series objects.
+
+      arr = [];
+      {% for key,value in line.items%}
+        var temp = [];
+         {% for a in value %}
+            {% for mykey,myval in a.items %}
+              var mydate = new Date('{{mykey}}');
+              temp.push({x:mydate,y:{{myval}}});
+            {% endfor %}
+          {% endfor %}
+          arr.push({values:temp,key:'{{key}}'});
+      {% endfor %}
+
+
+//Data is represented as an array of {x,y} pairs.
+
+//Line chart data should be sent as an array of series objects.
+      return  arr;
+
+    }
+
+  </script>
+</div>
+
+
+
+
+   <table class="table">
+       <tr>
+         <th>CHANGE</th>
+         <th>date</th><th>address</th>
+         <th>location_desc</th><th>description</th>
+         <th>violations</th><th>UpdateTime</th>
+         <th>Created by User</th>
+       </tr>
+       {% for crime_t in data %}
+       <tr>
+           <td>
+             <a href="{% url 'edit' id=crime_t.id %}">EDIT </a>
+           </td>
+           <td>{{crime_t.date}}</td>
+           <td>{{crime_t.address}}</td>
+           <td>{{crime_t.location_desc}}</td>
+           <td>{{crime_t.description}}</td>
+           <td>{{crime_t.violations}}</td>
+           <td>{{crime_t.UpdateTime}}</td>
+           {% if crime_t.created_by_user %}
+             <td> YES </td>
+           {% else %}
+             <td> NO </td>
+           {% endif %}
+       </tr>
+       {% endfor %}
+     </table>
+
+{% endblock content %}

@@ -1,0 +1,834 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Jonathan\Desktop\ECE385\ece385_lab8_jw\lab8_usb\lab8_usb\simulation\modelsim
+valtera_avalon_dc_fifo
+Z1 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
+I`X;Y3L39IBU^HCzel9]@Y2
+VZUPMFz?KzgYeJJhUEZ1JV2
+S1
+Z2 dC:\Users\Jonathan\Desktop\ECE385\ece385_lab8_jw\lab8_usb\lab8_usb\simulation\modelsim
+Z3 w1425698164
+8C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_avalon_dc_fifo.v
+FC:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_avalon_dc_fifo.v
+L0 13
+Z4 OV;L;10.1e;51
+r1
+31
+Z5 o-sv -work usb_system -O0
+Z6 !s92 -sv -work usb_system +incdir+C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules -O0
+!i10b 1
+!s100 0h;nDzzkCE2e4S]I^ZJC80
+!s105 altera_avalon_dc_fifo_v_unit
+!s85 0
+!s108 1427954172.020000
+!s107 C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_avalon_dc_fifo.v|
+!s90 -reportprogress|300|-sv|-work|usb_system|+incdir+C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules|C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_avalon_dc_fifo.v|
+!s101 -O0
+valtera_avalon_mm_clock_crossing_bridge
+R1
+IHGnVYOaETYLh70G[kfhQE2
+VY<=b61mdCWG@f4=iRWf<73
+S1
+R2
+R3
+8C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_avalon_mm_clock_crossing_bridge.v
+FC:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_avalon_mm_clock_crossing_bridge.v
+L0 30
+R4
+r1
+31
+R5
+R6
+!i10b 1
+!s100 L6zdi?D5HGYUadoEkK@:a1
+!s105 altera_avalon_mm_clock_crossing_bridge_v_unit
+!s85 0
+!s108 1427954171.957000
+!s107 C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_avalon_mm_clock_crossing_bridge.v|
+!s90 -reportprogress|300|-sv|-work|usb_system|+incdir+C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules|C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_avalon_mm_clock_crossing_bridge.v|
+!s101 -O0
+valtera_avalon_sc_fifo
+R1
+I>^ZmjGUBKmmAA8@68Ad710
+VjOzUMS5nAQIa6?lLKEfID0
+S1
+R2
+R3
+8C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_avalon_sc_fifo.v
+FC:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_avalon_sc_fifo.v
+L0 21
+R4
+r1
+31
+R5
+R6
+!i10b 1
+!s100 BUIe;Hi6a84oH5h<kE_S]3
+!s105 altera_avalon_sc_fifo_v_unit
+!s85 0
+!s108 1427954171.890000
+!s107 C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_avalon_sc_fifo.v|
+!s90 -reportprogress|300|-sv|-work|usb_system|+incdir+C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules|C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_avalon_sc_fifo.v|
+!s101 -O0
+valtera_dcfifo_synchronizer_bundle
+R1
+I0]zoK<a:j0gRj<SQOfDTA0
+Vj>T>Y6nGjcX>R_6B^<M_z0
+S1
+R2
+Z7 w1425698166
+8C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_dcfifo_synchronizer_bundle.v
+FC:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_dcfifo_synchronizer_bundle.v
+L0 8
+R4
+r1
+31
+R5
+R6
+!i10b 1
+!s100 S@a<E8;J`<D`WWnGQ?aNB0
+!s105 altera_dcfifo_synchronizer_bundle_v_unit
+!s85 0
+!s108 1427954172.084000
+!s107 C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_dcfifo_synchronizer_bundle.v|
+!s90 -reportprogress|300|-sv|-work|usb_system|+incdir+C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules|C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_dcfifo_synchronizer_bundle.v|
+!s101 -O0
+valtera_reset_controller
+R1
+I:4OEgnN=LM]X>>:bKJVl10
+Vd6XZeNR]PniX]Sml3E;hm2
+S1
+R2
+R7
+8C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_reset_controller.v
+FC:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_reset_controller.v
+L0 42
+R4
+r1
+31
+R5
+R6
+!i10b 1
+!s100 6PPR4VL`EEXBgkeVgEXKA1
+!s105 altera_reset_controller_v_unit
+!s85 0
+!s108 1427954171.624000
+!s107 C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_reset_controller.v|
+!s90 -reportprogress|300|-sv|-work|usb_system|+incdir+C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules|C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_reset_controller.v|
+!s101 -O0
+valtera_reset_synchronizer
+R1
+I8i[QVM60A;C_IA242H;Z52
+V3CjoOZCIEdzCJgPn8]D7`2
+S1
+R2
+R7
+8C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_reset_synchronizer.v
+FC:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_reset_synchronizer.v
+L0 24
+R4
+r1
+31
+R5
+R6
+!i10b 1
+!s100 Y18FfO6[^=7>zj12Jig8L2
+!s105 altera_reset_synchronizer_v_unit
+!s85 0
+!s108 1427954171.690000
+!s107 C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_reset_synchronizer.v|
+!s90 -reportprogress|300|-sv|-work|usb_system|+incdir+C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules|C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/altera_reset_synchronizer.v|
+!s101 -O0
+vCY7C67200_IF
+R1
+IJFl97oX?7^Q]80aYEfDU22
+V::k4la3CMMFD]j?loj8141
+S1
+R2
+R7
+8C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/CY7C67200_IF.v
+FC:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/CY7C67200_IF.v
+L0 1
+R4
+r1
+31
+R5
+R6
+n@c@y7@c67200_@i@f
+!i10b 1
+!s100 5MSSX`hm@Om;I1;;;gVM53
+!s105 CY7C67200_IF_v_unit
+!s85 0
+!s108 1427954172.142000
+!s107 C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/CY7C67200_IF.v|
+!s90 -reportprogress|300|-sv|-work|usb_system|+incdir+C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules|C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/CY7C67200_IF.v|
+!s101 -O0
+vusb_system
+R1
+I=AE>oI:OPTJXjD71no0Hn2
+VRNJl2T0Se<GmC;NbN:=d>1
+S1
+R2
+R3
+8C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/usb_system.v
+FC:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/usb_system.v
+L0 6
+R4
+r1
+31
+R5
+!i10b 1
+!s100 zP[bDkeXRCL`7XC2m@Sfl2
+!s105 usb_system_v_unit
+!s85 0
+!s108 1427954171.525000
+!s107 C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/usb_system.v|
+!s90 -reportprogress|300|-sv|-work|usb_system|+incdir+C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis|C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/usb_system.v|
+!s101 -O0
+!s92 -sv -work usb_system +incdir+C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis -O0
+vusb_system_clocks
+R1
+I`N0oNQf?e2=I8==i9_:h40
+VbO`FQ_HA6L6YD0Fc`[PQN0
+Z8 !s105 usb_system_clocks_v_unit
+S1
+R2
+R7
+Z9 8C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_clocks.v
+Z10 FC:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_clocks.v
+L0 218
+R4
+r1
+31
+Z11 !s108 1427954172.267000
+Z12 !s107 C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_clocks.v|
+Z13 !s90 -reportprogress|300|-sv|-work|usb_system|+incdir+C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules|C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_clocks.v|
+R5
+R6
+!i10b 1
+!s100 3f1g=gKG<A_e6do>Mb9cf0
+!s85 0
+!s101 -O0
+vusb_system_clocks_altpll_pqa2
+R1
+Ij38=W1aWFlPMJk=Cn`90o1
+VHzela_H^De[LHPTCi;;^=1
+R8
+S1
+R2
+R7
+R9
+R10
+L0 131
+R4
+r1
+31
+R11
+R12
+R13
+R5
+R6
+!i10b 1
+!s100 zPcZH[^K5OaFkF:X=Rjk11
+!s85 0
+!s101 -O0
+vusb_system_clocks_dffpipe_l2c
+R1
+I1O?HolC0@8L_oJgNRcDAi0
+VM:1IVLF8>o`0>Q1K`7C1J0
+R8
+S1
+R2
+R7
+R9
+R10
+L0 38
+R4
+r1
+31
+R11
+R12
+R13
+R5
+R6
+!i10b 1
+!s100 5YJD9?WA2l7EUP]Dm?i6[1
+!s85 0
+!s101 -O0
+vusb_system_clocks_stdsync_sv6
+R1
+I:g@[:6bX:WJDe`Fk_3?]L3
+VNTbAHnm6oENhDJzf3>G@o2
+R8
+S1
+R2
+R7
+R9
+R10
+L0 99
+R4
+r1
+31
+R11
+R12
+R13
+R5
+R6
+!i10b 1
+!s100 <n=5N1WWO4K70dAm_fjI[0
+!s85 0
+!s101 -O0
+vusb_system_cpu
+R1
+!i10b 1
+!s100 Sj=JTP@;L_mFHhOIJn2:13
+IDngf7`=b3XO7AhU1So0D42
+V?8:CPm5a4NmmSU3ME@f]H2
+Z14 !s105 usb_system_cpu_v_unit
+S1
+R2
+R7
+Z15 8C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_cpu.v
+Z16 FC:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_cpu.v
+L0 3166
+R4
+r1
+!s85 0
+31
+Z17 !s108 1427954172.378000
+Z18 !s107 C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_cpu.v|
+Z19 !s90 -reportprogress|300|-sv|-work|usb_system|+incdir+C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules|C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_cpu.v|
+!s101 -O0
+R5
+R6
+vusb_system_cpu_nios2_avalon_reg
+R1
+!i10b 1
+!s100 Q5M<KXgUnN4Rh<MHX>37`2
+I4iYUOf>YCfQPbOjCI>[ch0
+VdAk:n65RkPkPo=b<8NWT]1
+R14
+S1
+R2
+R7
+R15
+R16
+L0 536
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_cpu_nios2_oci
+R1
+!i10b 1
+!s100 _A[ThGYLDV95Ph;g26<fH0
+I_<l1:enB7G5Q6BWOda8[d3
+V17CnWePPCPc63`odOeJWa2
+R14
+S1
+R2
+R7
+R15
+R16
+L0 2658
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_cpu_nios2_oci_break
+R1
+!i10b 1
+!s100 =Z]k_J:f483@Min1b?`:02
+IYReXhAT3[bLbi<UYmRdS_0
+V^;b0mfXg7@ab5h<g@fBBQ1
+R14
+S1
+R2
+R7
+R15
+R16
+L0 628
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_cpu_nios2_oci_compute_input_tm_cnt
+R1
+!i10b 1
+!s100 zoo[PLJA]@i;?9e]GO6^f0
+InNFZ_5^H6Mj@<gm0A^39C3
+V2[oX6JULCZghcU4G8UoLl2
+R14
+S1
+R2
+R7
+R15
+R16
+L0 1798
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_cpu_nios2_oci_dbrk
+R1
+!i10b 1
+!s100 ;]=l>?:mh8a];g[GGof5@3
+I4;8FhjJ:L]N6`X;[5fAEB2
+VA`W:8WeRMJH6PMSDiDHPd2
+R14
+S1
+R2
+R7
+R15
+R16
+L0 1128
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_cpu_nios2_oci_debug
+R1
+!i10b 1
+!s100 go??oCU=V[`WUKCK:X_Za2
+I]O`AogARg^?INNVXAVfl;0
+Vb904IVN2J8H6G?BA9D`JT2
+R14
+S1
+R2
+R7
+R15
+R16
+L0 151
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_cpu_nios2_oci_dtrace
+R1
+!i10b 1
+!s100 Oo;1jkF26dMECDBOLG7cO1
+IF^jnzV@2RT1ZO@IE=hBFJ1
+VUYZmI:bKejkce0LS2]@R71
+R14
+S1
+R2
+R7
+R15
+R16
+L0 1704
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_cpu_nios2_oci_fifo
+R1
+!i10b 1
+!s100 d0Af<BTh695gNG;YjiY_Q0
+Iz@6zKoPJKmTA>IZ><HRbD0
+VDO;JLz8X6lT:dDa;U:o2o2
+R14
+S1
+R2
+R7
+R15
+R16
+L0 1957
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_cpu_nios2_oci_fifo_cnt_inc
+R1
+!i10b 1
+!s100 YeDiKbN`64OB1Ichd_USF1
+I;HRL:8[RfikXYlO0cZ6cZ2
+V;;5`In<2_?>`SG5UV8F:d0
+R14
+S1
+R2
+R7
+R15
+R16
+L0 1911
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_cpu_nios2_oci_fifo_wrptr_inc
+R1
+!i10b 1
+!s100 SBSzi3<E;A2Ckd:nbYDP81
+IBAB81?`fiia9f`=^[hO>`3
+VMdW7^2FbhMa]=CQVbP1MT2
+R14
+S1
+R2
+R7
+R15
+R16
+L0 1869
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_cpu_nios2_oci_im
+R1
+!i10b 1
+!s100 @c=G[hlRm0]SfCKJR`nWl2
+IJGI8`CkJm3VdWPgIz3i3U3
+VFYkkc0njoLbHhDFj=4d_N3
+R14
+S1
+R2
+R7
+R15
+R16
+L0 2526
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_cpu_nios2_oci_itrace
+R1
+!i10b 1
+!s100 Q1jkAf?_ij36Q<mPi@XKG0
+IO;1`8;XDIS5Ba8e5XFGWN1
+VeH>NUNGh692el69^h=R1_0
+R14
+S1
+R2
+R7
+R15
+R16
+L0 1314
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_cpu_nios2_oci_pib
+R1
+!i10b 1
+!s100 LB:B6Dl^4_HMTd5dVWcO_2
+I0>KOn2UgSC=bAig8PgVjA3
+VzjCHVdLO97KjUIjN=i]Q<1
+R14
+S1
+R2
+R7
+R15
+R16
+L0 2458
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_cpu_nios2_oci_td_mode
+R1
+!i10b 1
+!s100 bRGERQaQODH^j99kOmdNd0
+I[<a?W6cK:UU^:L2TVA[OH1
+VFE0<J2^8FNN>926KM6_lm0
+R14
+S1
+R2
+R7
+R15
+R16
+L0 1637
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_cpu_nios2_oci_xbrk
+R1
+!i10b 1
+!s100 =z9kUKfDdFjC;2[n7E`4n1
+IAVJz9Z<cc]:ZLVQ]79l7@2
+V2ePb_;Vo;Czc`kIna9Uh71
+R14
+S1
+R2
+R7
+R15
+R16
+L0 922
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_cpu_nios2_ocimem
+R1
+!i10b 1
+!s100 B9E65^_hYdMeFf=QdJjSU0
+I1Cf4^FBPjhF4QLYazQa;V1
+V]idO6ifK^`;95C_UzheJi3
+R14
+S1
+R2
+R7
+R15
+R16
+L0 355
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_cpu_nios2_performance_monitors
+R1
+!i10b 1
+!s100 eWCijNhafY:?nBg3V`5Ld2
+I[Yh_ziiQICCfC5K9W0fJD2
+V7H>nFmB>Pkh5obb`o=?3:1
+R14
+S1
+R2
+R7
+R15
+R16
+L0 2642
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_cpu_ociram_sp_ram_module
+R1
+!i10b 1
+!s100 ef^HSdIa]T[o]2[SSAejc2
+IZ3Q?j<bfkf^@MD``O;BK10
+Ve=Z@PM9m=>0ZOSi@YXV?O1
+R14
+S1
+R2
+R7
+R15
+R16
+L0 292
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_cpu_register_bank_a_module
+R1
+!i10b 1
+!s100 a[2lVf6?mPGFUGPMY[V<g3
+I02iIJnD?Z_GIgIE5ROWm=0
+V0jUHH?W<M7DCGPE5z;kjA0
+R14
+S1
+R2
+R7
+R15
+R16
+L0 21
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_cpu_register_bank_b_module
+R1
+!i10b 1
+!s100 K:B2^9^kPH[^LJAM;mh?O0
+IA;?SVJhi>EG4zX4WI2_Y;1
+VmKifK>Wlh]3HXz?EESfSi0
+R14
+S1
+R2
+R7
+R15
+R16
+L0 86
+R4
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R5
+R6
+vusb_system_keycode
+R1
+I>ba[flSd1e?Y:f8APboV<1
+Vd`LiXMmPl66@aFJQWLogm2
+S1
+R2
+R7
+8C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_keycode.v
+FC:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_keycode.v
+L0 21
+R4
+r1
+31
+R5
+R6
+!i10b 1
+!s100 i4@ga6b<zCUIHaf13HjOb2
+!s105 usb_system_keycode_v_unit
+!s85 0
+!s108 1427954172.199000
+!s107 C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_keycode.v|
+!s90 -reportprogress|300|-sv|-work|usb_system|+incdir+C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules|C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_keycode.v|
+!s101 -O0
+vusb_system_mm_interconnect_0
+R1
+IhSZ<_:VWoTIJ1YW^Yk:2f3
+VA=02dBO3mZTkb4fFF[[H^2
+S1
+R2
+R7
+8C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_mm_interconnect_0.v
+FC:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_mm_interconnect_0.v
+L0 9
+R4
+r1
+31
+R5
+R6
+!i10b 1
+!s100 NePo?<[]E3e8j[S5^5;bM3
+!s105 usb_system_mm_interconnect_0_v_unit
+!s85 0
+!s108 1427954171.806000
+!s107 C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_mm_interconnect_0.v|
+!s90 -reportprogress|300|-sv|-work|usb_system|+incdir+C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules|C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_mm_interconnect_0.v|
+!s101 -O0
+vusb_system_mm_interconnect_1
+R1
+ITU0IF]SkZzkC?P32YN3:B1
+VFefcb:m5_Mg2GBMkIIgmJ3
+S1
+R2
+R7
+8C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_mm_interconnect_1.v
+FC:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_mm_interconnect_1.v
+L0 9
+R4
+r1
+31
+R5
+R6
+!i10b 1
+!s100 ]d8I>TLk41z?@HFSd9cU^2
+!s105 usb_system_mm_interconnect_1_v_unit
+!s85 0
+!s108 1427954171.747000
+!s107 C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_mm_interconnect_1.v|
+!s90 -reportprogress|300|-sv|-work|usb_system|+incdir+C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules|C:/Users/Jonathan/Desktop/ECE385/ece385_lab8_jw/lab8_usb/lab8_usb/usb_system/synthesis/submodules/usb_system_mm_interconnect_1.v|
+!s101 -O0

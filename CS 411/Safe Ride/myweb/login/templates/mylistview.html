@@ -1,0 +1,31 @@
+{% extends "simple.html" %}
+
+
+{% block content %}
+
+<p>
+  <a href="{% url 'base_page' %}">Goto HOME</a>
+</p>
+
+<table class="table">
+  <tr>
+    <th>CHANGE</th>
+    <th>date</th><th>address</th>
+    <th>location_desc</th><th>description</th>
+    <th>violations</th>
+  </tr>
+  {% for crime_t in data %}
+  <tr>
+    <td>
+      <a href="{% url 'edit' id=crime_t.id %}">EDIT </a>
+    </td>
+    <td>{{crime_t.date}}</td>
+    <td>{{crime_t.address}}</td>
+    <td>{{crime_t.location_desc}}</td>
+    <td>{{crime_t.description}}</td>
+    <td>{{crime_t.violations}}</td>
+  </tr>
+  {% endfor %}
+
+  {% endblock content %}
+

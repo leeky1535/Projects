@@ -1,0 +1,35 @@
+{% extends "simple.html" %}
+
+{% block content %}
+
+    <table class="table">
+        <tr>
+          <th>CHANGE</th>
+          <th>date</th><th>address</th>
+          <th>location_desc</th><th>description</th>
+          <th>violations</th><th>UpdateTime</th>
+          <th>Created by User</th>
+        </tr>
+        {% for crime_t in data %}
+            <tr>
+                <td>
+                  <a href="{% url 'edit' id=crime_t.id %}">EDIT </a>
+                </td>
+                <td>{{crime_t.date}}</td>
+                <td>{{crime_t.address}}</td>
+                <td>{{crime_t.location_desc}}</td>
+                <td>{{crime_t.description}}</td>
+                <td>{{crime_t.violations}}</td>
+                <td>{{crime_t.UpdateTime}}</td>
+                {% if crime_t.created_by_user %}
+                  <td> YES </td>
+                {% else %}
+                  <td> NO </td>
+                {% endif %}
+                <td>
+                <a href="{% url 'delete' id=crime_t.id %}">DELETE</a>
+                <td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}

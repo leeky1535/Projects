@@ -1,0 +1,127 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="{% static '/nvd3-gh-pages/build/nv.d3.css' %}" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+    <script src="{% static '/nvd3-gh-pages/build/nv.d3.js' %}"></script>
+    <script src="{% static '/nvd3-gh-pages/examples/lib/stream_layers.js' %}"></script>
+
+    <style>
+        text {
+            font: 12px sans-serif;
+        }
+        svg {
+            display: block;
+            float: left;
+        }
+        #test1 {
+            height: 750px !important;
+            width: 750px !important;
+        }
+        html, body {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            width: 100%;
+        }
+        .nvd3.nv-pie.nv-chart-donut1 .nv-pie-title {
+            opacity: 0.9;
+            fill: rgba(224, 116, 76, 0.91);
+        }
+
+
+
+
+    text {
+        font: 12px sans-serif;
+    }
+    svg {
+        display: block;
+    }
+    html, body, #chart, svg {
+        margin: 0px;
+        padding: 0px;
+        height: 100%;
+        width: 100%;
+    }
+</style>
+</head>
+<body class='with-3d-shadow with-transitions'>
+
+<svg id="test1" class="mypiechart"></svg>
+
+<div id="chart" class='with-3d-shadow with-transitions'>
+    <svg></svg>
+</div>
+<script>
+    var testdata = [
+      {% for key, value in data.items %}
+      {key: "{{key}}", y: {{value}}},
+      {% endfor %}
+
+    ];
+    var height = 750;
+    var width = 750;
+    var chart1;
+    nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .x(function(d) { return d.key })
+            .y(function(d) { return d.y })
+            .width(width)
+            .height(height)
+            .showTooltipPercent(true);
+        d3.select("#test1")
+            .datum(testdata)
+            .transition().duration(1200)
+            .attr('width', width)
+            .attr('height', height)
+            .call(chart);      
+        return chart;
+    });
+
+    nv.addGraph(function() {
+    var chart = nv.models.lineWithFocusChart();
+    chart.xAxis.axisLabel('Time (ms)').tickFormat(function(d) {return d3.time.format('%Y-%m')(new Date(d))});
+    chart.xScale(d3.time.scale());
+    chart.x2Axis.tickFormat(function(d) {return d3.time.format('%m-%y')(new Date(d))});
+    chart.yTickFormat(d3.format(',.2f'));
+    chart.useInteractiveGuideline(true);
+    d3.select('#chart svg')
+        .datum(linedata())
+        .call(chart);
+    nv.utils.windowResize(chart.update);
+    return chart;
+  });
+
+
+    function linedata() {
+
+      //Data is represented as an array of {x,y} pairs.
+      //Line chart data should be sent as an array of series objects.
+
+      arr = [];
+      {% for key,value in line.items%}
+        var temp = [];
+         {% for a in value %}
+            {% for mykey,myval in a.items %}
+              var mydate = new Date('{{mykey}}');
+              temp.push({x:mydate,y:{{myval}}});
+            {% endfor %}
+          {% endfor %}
+          arr.push({values:temp,key:'{{key}}'});
+      {% endfor %}
+
+
+//Data is represented as an array of {x,y} pairs.
+
+//Line chart data should be sent as an array of series objects.
+      return  arr;
+    }
+
+  </script>
+  </body>
+  </html>

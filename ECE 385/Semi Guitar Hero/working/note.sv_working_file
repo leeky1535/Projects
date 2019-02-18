@@ -1,0 +1,67 @@
+//    always_ff @ (posedge Reset or posedge frame_clk )
+//    begin: Move_Note
+//       if (Reset)  // Asynchronous Reset
+//        begin 
+//            Note_Y_Motion <= 10'd0; //Note_Y_Step;
+//				Note_X_Motion <= 10'd0; //Note_X_Step;
+//				Note_Y_Pos <= Note_Y_Start;
+//				Note_X_Pos <= Note_X_Start;
+//       end
+//           
+//        else 
+//        begin 
+//				 if ( (Note_Y_Pos + Note_Size) >= Note_Y_Max )  // Note is at the bottom edge, BOUNCE!
+//					  Note_Y_Motion <= (~ (Note_Y_Step) + 1'b1);  // 2's complement.
+//					  
+//				 else if ( (Note_Y_Pos - Note_Size) <= Note_Y_Min )  // Note is at the top edge, BOUNCE!
+//					  Note_Y_Motion <= Note_Y_Step;
+//				 
+//				 else if ( (Note_X_Pos + Note_Size) >= Note_X_Max )  // Note is at the right edge, BOUNCE!
+//					  Note_X_Motion <= (~ (Note_X_Step) + 1'b1);  // 2's complement.
+//					  
+//				 else if ( (Note_X_Pos - Note_Size) <= Note_X_Min )  // Note is at the left edge, BOUNCE!
+//					  Note_X_Motion <= Note_X_Step;
+//				 
+//				 else 
+//				 begin
+//						if ( keycode == 8'h1A)
+//						begin
+//							Note_Y_Motion <= (~ (Note_Y_Step) + 1'b1);
+//							Note_X_Motion <= 10'd0;
+//						end
+//						else if (keycode == 8'h16) 
+//						begin
+//							Note_Y_Motion <= Note_Y_Step;
+//							Note_X_Motion <= 10'd0;
+//					   end
+//						else if (keycode == 8'h04)
+//						begin
+//							Note_X_Motion <= (~ (Note_X_Step) + 1'b1);
+//							//Note_X_Motion <= 10'b1111111111;
+//					   	Note_Y_Motion <= 10'd0;
+//						end
+//						else if (keycode == 8'h07)
+//						begin
+//							Note_X_Motion <= Note_X_Step;
+//							//Note_X_Motion <= 10'd1;
+//	   	   			Note_Y_Motion <= 10'd0;		
+//						end
+//						//else
+//						//Note_Y_Motion <= Note_Y_Motion;  // Note is somewhere in the middle, don't bounce, just keep moving			  
+//						//Note_X_Motion <= Note_X_Motion;  // You need to remove this and make both X and Y respond to keyboard input
+//				  end
+//
+//				 Note_Y_Pos <= (Note_Y_Pos + Note_Y_Motion);  // Update Note position
+//				 Note_X_Pos <= (Note_X_Pos + Note_X_Motion);
+//
+//		end  
+//   end
+       
+    assign NoteX = Note_X_Pos;
+   
+    assign NoteY = Note_Y_Pos;
+   
+    assign NoteSX = Note_SizeX;
+	 
+	 assign NoteSY = Note_SizeY;
+    

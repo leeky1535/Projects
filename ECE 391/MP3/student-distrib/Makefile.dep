@@ -1,0 +1,25 @@
+boot.o: boot.S multiboot.h x86_desc.h types.h
+interrupts.o: interrupts.S x86_desc.h types.h
+syscall_kernel.o: syscall_kernel.S x86_desc.h types.h
+x86_desc.o: x86_desc.S x86_desc.h types.h
+exceptions.o: exceptions.c exceptions.h x86_desc.h types.h lib.h i8259.h \
+  interrupts.h keyboard.h rtc.h system_calls.h
+filesys.o: filesys.c filesys.h types.h keyboard.h lib.h i8259.h \
+  op_table.h pcb.h rtc.h x86_desc.h
+i8259.o: i8259.c i8259.h types.h lib.h
+kernel.o: kernel.c multiboot.h types.h x86_desc.h lib.h i8259.h debug.h \
+  exceptions.h keyboard.h page.h rtc.h filesys.h op_table.h pcb.h \
+  system_calls.h interrupts.h terminals.h
+keyboard.o: keyboard.c types.h i8259.h lib.h keyboard.h tests.h rtc.h \
+  x86_desc.h filesys.h op_table.h system_calls.h terminals.h pcb.h
+lib.o: lib.c lib.h types.h
+op_table.o: op_table.c filesys.h types.h keyboard.h lib.h i8259.h \
+  op_table.h rtc.h x86_desc.h
+page.o: page.c types.h x86_desc.h lib.h page.h
+rtc.o: rtc.c types.h x86_desc.h lib.h i8259.h rtc.h
+system_calls.o: system_calls.c x86_desc.h types.h lib.h system_calls.h \
+  rtc.h i8259.h op_table.h pcb.h filesys.h keyboard.h page.h terminals.h
+terminals.o: terminals.c lib.h types.h pcb.h filesys.h keyboard.h i8259.h \
+  op_table.h page.h system_calls.h terminals.h
+tests.o: tests.c tests.h x86_desc.h types.h lib.h page.h rtc.h i8259.h \
+  keyboard.h filesys.h op_table.h

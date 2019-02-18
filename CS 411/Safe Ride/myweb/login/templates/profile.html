@@ -1,0 +1,18 @@
+<h1>Hello, {{ user.username }}!</h1>
+<ul>
+  <li>Username: {{ user.username }}</li>
+  <li>Email: {{ user.email }}</li>
+  <li>First name: {{ user.first_name }}</li>
+  <li>Last name: {{ user.last_name }}</li>
+  <a href="{% url 'showmylist' %}">Show my crime list</a>
+</ul>
+<h1>Edit Profile</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ user_form.as_p }}
+  {{ profile_form.as_p }}
+  <button type="submit">Save changes</button><br><br><br>
+  <a href="{% url 'main' %}">Back to Main Page</a>
+</form>
+
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Chat Rooms</title>
+</head>
+
+<body>
+    	Which side of Chicago do you live in?<br/>
+	<select id="side">
+		<option value="Central">Central</option>
+		<option value="North">North</option>
+		<option value="South">South</option>
+		<option value="West">West</option>
+		<option value="East">East</option>
+	</select>
+	<input id="submit_side" type="button" value="Enter Chatroom">
+
+	<script>
+		document.querySelector('#side').focus();
+		document.querySelector('#submit_side').onclick = function(e) {
+		    	var roomName = document.querySelector('#side').value;
+		    	window.location.pathname = '/chat/' + roomName + '/';
+		};
+	</script>
+</body>
+</html>
+

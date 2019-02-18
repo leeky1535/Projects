@@ -1,0 +1,328 @@
+pip install nltk
+pip install -U channels
+pip install channels_redis
+sudo apt-get isntall redis-server
+
+open python
+>>> import nltk
+>>> nltk.download('stopwords')
+>>> nltk.download('punkt')
+>>> nltk.download('wordnet')
+
+pip install django-widget_tweaks
+pip install django-bootstrap4
+pip install mysql-connector-python
+pip install mysql-connector-python --allow-external mysql-connector-python
+pip install django-geoposition
+
+CREATE VIEW home_new_format as SELECT id, DATE_FORMAT(date,"%Y-%m") as new_date,description,count(description) as new_count FROM home_crime_t group by YEAR(date),MONTH(date),description order by description,new_date;
+
+[mysqld]
+sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+
+
+scp -r skim445@su18-cs411-07.cs.illinois.edu:/home/skim445/cop /home/[]
+
+delimiter //
+CREATE TRIGGER NearByCrimes AFTER INSERT ON home_crime_t
+FOR EACH ROW
+BEGIN
+IF NEW.address = (SELECT location FROM login_profile WHERE NEW.author_id = login_profile.user_id) THEN
+INSERT INTO login_nearcrimes SET user_id=NEW.author_id, location=NEW.address, description=NEW.description, date=NEW.date;
+END IF;
+END;//
+delimiter ;
+
+
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Villagers - Chicago Crime Data</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/grayscale.min.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Safe Ride</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+	     {% if user.is_authenticated %}
+              <a class="nav-link js-scroll-trigger" href="{% url 'base_page' %}">CrimeDB</a>
+	      {% else %}
+	      <a class="nav-link js-scroll-trigger" href="{% url 'plzlogin' %}">CrimeDB</a>
+	     {% endif %}
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">Intro</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#projects">Project</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#signup">About Us</a>
+            </li>
+            <li class="nav-item">
+    	      {% if user.is_authenticated %}
+	       <a class="nav-link js-scroll-trigger" href="{% url 'chat' %}">Chat</a>
+    	       {% else %}
+	       <a class="nav-link js-scroll-trigger" href="{% url 'login' %}">Login</a>
+            {% endif %} 
+            </li>
+            <li class="nav-item">
+    	      {% if user.is_authenticated %}
+	       <a class="nav-link js-scroll-trigger" href="{% url 'profile' %}">{{ user.first_name }}</a>
+              {% endif %} 
+            </li>
+	    <li class="nav-item">
+    	      {% if user.is_authenticated %}
+     	       <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">Logout</a>
+              {% endif %} 
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead">
+      <div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+          <h1 class="mx-auto my-0 text-uppercase">Safe Ride</h1>
+          <h2 class="text-white-50 mx-auto mt-2 mb-5">A convenient, visual crime tracker and safe travel planner in Chicago created by the Villagers.</h2>
+          <a href="#about" class="btn btn-primary js-scroll-trigger">Get Started</a>
+          {% if user.is_authenticated %}
+	  <h2>{{ user.get_full_name }}</h2>
+	  <ul>
+	    <li>Username: {{ user.username }}</li>
+	   </ul>
+	  {% else %}
+	  {% endif %}
+        </div>
+      </div>
+    </header>
+
+
+
+
+
+    <!--{% static block content %}
+    {% static endblock content %}
+  --
+>
+
+
+
+
+
+
+    <!-- About Section -->
+    <section id="about" class="about-section text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-white mb-4">Introduction</h2>
+            <p class="text-white-50"><font size='5'>Chicago is often rated as top 5 dangerous cities in the US for its crime rates and violence. We hear people from out of states saying you can hear gunshots everyday, it is not safe to walk outside at night, etc. However, people who've been to Chicago know that this is not true...at least for some parts. To make sure travelers and visitors can feel safe and enjoy their trips, we are planning to analyze crime rates in Chicago and visualize them with map based on user's input routes. Our web page will allow users to report personally witnessed crimes as well.</br>
+
+            We used dataset from <a href="https://www.kaggle.com/currie32/crimes-in-chicago/data">this Kaggle page</a>, which is extracted from the Chicago Police Department's CLEAR (Citizen Law Enforcement Analysis and Reporting) system.
+            </font>
+</p>
+          </div>
+        </div>
+        <img src="{% static 'img/chicago.png" class="img-fluid' %}" alt="">
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section bg-light">
+      <div class="container">
+
+        <!-- Featured Project Row -->
+        <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+          <div class="col-xl-8 col-lg-7">
+            <img class="img-fluid mb-3 mb-lg-0" src="{% static 'img/14514318-london-uk-13-june-2012-chicago-illinois-marked-with-red-pushpin-on-the-united-states-map-.jpg' %}" alt="">
+          </div>
+          <div class="col-xl-4 col-lg-5">
+            <div class="featured-text text-center text-lg-left">
+              <h4>Project Safe Ride</h4>
+              <p class="text-black-50 mb-0">For this project, we only focused on Chicago region based on crimes reported to Chicago Police Department. This dataset reflects reported incidents of crime (with the exception of murders where data exists for each victim) that occurred in the City of Chicago. In order to protect the privacy of crime victims, addresses are shown at the block level only and specific locations are not identified. </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project One Row -->
+        <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+          <div class="col-lg-6">
+            <img class="img-fluid" src="{% static 'img/Bruhin-Data-Graphics-1200-1200x627.jpg' %}" alt="">
+          </div>
+          <div class="col-lg-6">
+            <div class="bg-black text-center h-100 project">
+              <div class="d-flex h-100">
+                <div class="project-text w-100 my-auto text-center text-lg-left">
+                  <h4 class="text-white">Massive CLEAR Database</h4>
+                  <p class="mb-0 text-white-50">From over 6,000,000 records of data, we extracted only the most recent data from 2012-2017 and used 1,710,013 tuples with attributes date, address, latitude, longitude, description, location description, violations, and created_by_user.   </p>
+                  <hr class="d-none d-lg-block mb-0 ml-0">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Two Row -->
+        <div class="row justify-content-center no-gutters">
+          <div class="col-lg-6">
+            <img class="img-fluid" src="{% static 'img/584668831a98d094bf9ceb0a533d0984149e044f.jpeg' %}" alt="">
+          </div>
+          <div class="col-lg-6 order-lg-first">
+            <div class="bg-black text-center h-100 project">
+              <div class="d-flex h-100">
+                <div class="project-text w-100 my-auto text-center text-lg-right">
+                  <h4 class="text-white">Chat Bot Crime Report System</h4>
+                  <p class="mb-0 text-white-50">Through chat system, we made it possible for users to communicate among users to discuss and share crime information in their neighborhoods with real-time crime report system.</p>
+                  <hr class="d-none d-lg-block mb-0 mr-0">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Signup Section -->
+    <section id="signup" class="signup-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-lg-8 mx-auto text-center">
+
+            <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+            <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
+
+            <form class="form-inline d-flex">
+              <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Enter email address...">
+              <button type="submit" class="btn btn-primary mx-auto">Subscribe</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section bg-black">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-md-6 mb-4 mb-md-0">
+            <div class="card py-4 h-100">
+              <div class="card-body text-center">
+                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                <h4 class="text-uppercase m-0">Seungsik Kim</h4>
+                <hr class="my-4">
+                <div class="small text-black-50">skim445@illinois.edu</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4 mb-md-0">
+            <div class="card py-4 h-100">
+              <div class="card-body text-center">
+                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                <h4 class="text-uppercase m-0">Kyung Jae Lee</h4>
+                <hr class="my-4">
+                <div class="small text-black-50">klee152@illinois.edu</div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="col-md-6 mb-4 mb-md-0">
+            <div class="card py-4 h-100">
+              <div class="card-body text-center">
+                <i class="fas fa-envelope text-primary mb-2"></i>
+                <h4 class="text-uppercase m-0">Jaehwi Kim</h4>
+                <hr class="my-4">
+                <div class="small text-black-50">
+                  jkim589@illinois.edu
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4 mb-md-0">
+            <div class="card py-4 h-100">
+              <div class="card-body text-center">
+                <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                <h4 class="text-uppercase m-0">Jaemin Kim</h4>
+                <hr class="my-4">
+                <div class="small text-black-50">jkim557@illinois.edu</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="social d-flex justify-content-center">
+          <a href="#" class="mx-2">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="mx-2">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="mx-2">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black small text-center text-white-50">
+      <div class="container">
+        Copyright &copy; University of Illinois at Urbana-Champaign, CS 411 SU18, Track1 - Villagers
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'vendor/font-awesome/js/all.js' %}"></script>
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'js/grayscale.min.js' %}"></script>
+
+  </body>
+
+</html>
