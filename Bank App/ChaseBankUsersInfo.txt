@@ -1,0 +1,1 @@
+[name=kyung, age=18, address="23 232 3ffff d", salary=40000, account=Account [account_type=saving, account_number=0, balance=2000], Branchname=Chicago]
