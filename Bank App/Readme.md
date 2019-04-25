@@ -1,3 +1,3 @@
 This is a simple Bank application with Java.
 
-The user can create a profile, deposit, withdraw from saving or current account. It tracks user and account profiles in a text file.
+A customer can create an account, and deposit, withdraw from saving or current account. It tracks user and account profiles in a text file.
