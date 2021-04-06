@@ -2,16 +2,6 @@ LOGISTICS
 -----
 ECE 391 MP3 
 
-Checkpoint 1 due Monday 10/23/2017, 6pm in GitLab
-
-Checkpoint 2 due Monday 10/30/2017, 6pm in GitLab
-
-Checkpoint 3 due Monday 11/13/2017, 6pm in GitLab
-
-Checkpoint 4 due Tuesday 11/28/2017, 6pm in GitLab
-
-Checkpoint 5 due Monday 12/11/2017, 6pm in GitLab
-
 
 ACADEMIC INTEGRITY
 -----
