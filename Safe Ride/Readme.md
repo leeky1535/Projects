@@ -1,6 +1,6 @@
 Safe Ride
 
-This is our final project for CS411: Database Systems.
+This is our Safe Ride project.
 
 We used Django Web Framework to build our website.
 
