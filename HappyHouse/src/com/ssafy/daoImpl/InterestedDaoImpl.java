@@ -7,7 +7,7 @@ import java.util.List;
 import com.ssafy.dao.InterestedDao;
 import com.ssafy.dto.InterestedDto;
 import com.ssafy.util.DBClose;
-import com.ssafy.util.DBConnection;
+import com.ssafy.util.DBUtil;
 
 public class InterestedDaoImpl implements InterestedDao {
 	private final String DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -114,7 +114,7 @@ public class InterestedDaoImpl implements InterestedDao {
 		ResultSet rs = null;
 		List<InterestedDto> interestedList = new ArrayList<InterestedDto>();
 		try {
-			conn = DBConnection.getConnection();
+			conn = DBUtil.getConnection();
 			String sql = "select *\n" + "from interested" + " where userid = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userId);

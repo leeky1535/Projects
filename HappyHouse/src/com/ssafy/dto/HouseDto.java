@@ -1,23 +1,27 @@
 package com.ssafy.dto;
 
-public class HouseDto {
+public class HouseDto implements Comparable<HouseDto> {
 	private int no;
+	private String sido;
+	private String gugun;
 	private String dong;
-	private String AptName;
-	private String code;
+	private String dongCode;
+	private String aptName;
 	private String buildYear;
 	private String jibun;
 	private String lat;
 	private String lng;
 	private String img;
 
-	public HouseDto(int no, String dong, String aptName, String code, String buildYear, String jibun, String lat,
-			String lng, String img) {
+	public HouseDto(int no, String sido, String gugun, String dong, String dongCode, String aptName, String buildYear,
+			String jibun, String lat, String lng, String img) {
 		super();
 		this.no = no;
+		this.sido = sido;
+		this.gugun = gugun;
 		this.dong = dong;
-		this.AptName = aptName;
-		this.code = code;
+		this.dongCode = dongCode;
+		this.aptName = aptName;
 		this.buildYear = buildYear;
 		this.jibun = jibun;
 		this.lat = lat;
@@ -25,8 +29,32 @@ public class HouseDto {
 		this.img = img;
 	}
 
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
 	public int getNo() {
 		return no;
+	}
+
+	public String getSido() {
+		return sido;
+	}
+
+	public void setSido(String sido) {
+		this.sido = sido;
+	}
+
+	public String getGugun() {
+		return gugun;
+	}
+
+	public void setGugun(String gugun) {
+		this.gugun = gugun;
 	}
 
 	public void setNo(int no) {
@@ -41,20 +69,20 @@ public class HouseDto {
 		this.dong = dong;
 	}
 
+	public String getDongCode() {
+		return dongCode;
+	}
+
+	public void setDongCode(String dongCode) {
+		this.dongCode = dongCode;
+	}
+
 	public String getAptName() {
-		return AptName;
+		return aptName;
 	}
 
 	public void setAptName(String aptName) {
-		AptName = aptName;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
+		this.aptName = aptName;
 	}
 
 	public String getBuildYear() {
@@ -89,18 +117,10 @@ public class HouseDto {
 		this.lng = lng;
 	}
 
-	public String getImg() {
-		return img;
-	}
-
-	public void setImg(String img) {
-		this.img = img;
-	}
-
 	@Override
-	public String toString() {
-		return "HouseDto [no=" + no + ", dong=" + dong + ", AptName=" + AptName + ", code=" + code + ", buildYear="
-				+ buildYear + ", jibun=" + jibun + ", lat=" + lat + ", lng=" + lng + ", img=" + img + "]";
+	public int compareTo(HouseDto o) {
+		// TODO Auto-generated method stub
+		return this.aptName.compareTo(o.getAptName());
 	}
 
 }

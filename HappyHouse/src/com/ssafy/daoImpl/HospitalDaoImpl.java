@@ -7,7 +7,7 @@ import java.util.List;
 import com.ssafy.dao.HospitalDao;
 import com.ssafy.dto.HospitalDto;
 import com.ssafy.util.DBClose;
-import com.ssafy.util.DBConnection;
+import com.ssafy.util.DBUtil;
 
 public class HospitalDaoImpl implements HospitalDao {
 
@@ -38,7 +38,7 @@ public class HospitalDaoImpl implements HospitalDao {
 		ResultSet rs = null;
 		List<HospitalDto> hospitalDtoList = new ArrayList<HospitalDto>();
 		try {
-			conn = DBConnection.getConnection();
+			conn = DBUtil.getConnection();
 			String sql = "select date, gugun_code, name, address, type, phone " + "from hospital "
 					+ "where gugun_code = ?";
 			pstmt = conn.prepareStatement(sql);
@@ -65,7 +65,7 @@ public class HospitalDaoImpl implements HospitalDao {
 		ResultSet rs = null;
 		List<HospitalDto> hospitalDtoList = new ArrayList<HospitalDto>();
 		try {
-			conn = DBConnection.getConnection();
+			conn = DBUtil.getConnection();
 			String sql = "select date_effective, gugun_code, name, address, business_hours_holiday, phone "
 					+ "from houseinfo";
 			pstmt = conn.prepareStatement(sql);

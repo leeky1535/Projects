@@ -7,7 +7,7 @@ import java.util.List;
 import com.ssafy.dao.CoronaClinicDao;
 import com.ssafy.dto.CoronaClinicDto;
 import com.ssafy.util.DBClose;
-import com.ssafy.util.DBConnection;
+import com.ssafy.util.DBUtil;
 
 public class CoronaClinicDaoImpl implements CoronaClinicDao {
 
@@ -38,7 +38,7 @@ public class CoronaClinicDaoImpl implements CoronaClinicDao {
 		ResultSet rs = null;
 		List<CoronaClinicDto> coronaClinicDtoList = new ArrayList<CoronaClinicDto>();
 		try {
-			conn = DBConnection.getConnection();
+			conn = DBUtil.getConnection();
 			String sql = "select date_effective, gugun_code, name, address, business_hours_holiday, phone "
 					+ "from houseinfo " + "where gugun_code = ?";
 			pstmt = conn.prepareStatement(sql);
@@ -67,7 +67,7 @@ public class CoronaClinicDaoImpl implements CoronaClinicDao {
 		ResultSet rs = null;
 		List<CoronaClinicDto> coronaClinicDtoList = new ArrayList<CoronaClinicDto>();
 		try {
-			conn = DBConnection.getConnection();
+			conn = DBUtil.getConnection();
 			String sql = "select date_effective, gugun_code, name, address, business_hours_holiday, phone "
 					+ "from houseinfo";
 			pstmt = conn.prepareStatement(sql);

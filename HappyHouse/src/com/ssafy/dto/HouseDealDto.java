@@ -1,10 +1,12 @@
 package com.ssafy.dto;
 
-public class HouseDealDto {
+public class HouseDealDto implements Comparable<HouseDealDto> {
 	private int no;
+	private String sido;
+	private String gugun;
 	private String dong;
-	private String AptName;
-	private String code;
+	private String dongCode;
+	private String aptName;
 	private String dealAmount;
 	private String buildYear;
 	private String dealYear;
@@ -15,15 +17,19 @@ public class HouseDealDto {
 	private String jibun;
 	private String type;
 	private String rentMoney;
+	private String lat;
+	private String lng;
 
-	public HouseDealDto(int no, String dong, String aptName, String code, String dealAmount, String buildYear,
-			String dealYear, String dealMonth, String dealDay, String area, String floor, String jibun, String type,
-			String rentMoney) {
+	public HouseDealDto(int no, String dongCode, String sido, String gugun, String dong, String aptName,
+			String dealAmount, String buildYear, String dealYear, String dealMonth, String dealDay, String area,
+			String floor, String jibun, String type, String rentMoney, String lat, String lng) {
 		super();
 		this.no = no;
+		this.sido = sido;
+		this.gugun = gugun;
 		this.dong = dong;
-		AptName = aptName;
-		this.code = code;
+		this.setDongCode(dongCode);
+		this.aptName = aptName;
 		this.dealAmount = dealAmount;
 		this.buildYear = buildYear;
 		this.dealYear = dealYear;
@@ -34,10 +40,28 @@ public class HouseDealDto {
 		this.jibun = jibun;
 		this.type = type;
 		this.rentMoney = rentMoney;
+		this.setLat(lat);
+		this.setLng(lng);
 	}
 
 	public int getNo() {
 		return no;
+	}
+
+	public String getSido() {
+		return sido;
+	}
+
+	public void setSido(String sido) {
+		this.sido = sido;
+	}
+
+	public String getGugun() {
+		return gugun;
+	}
+
+	public void setGugun(String gugun) {
+		this.gugun = gugun;
 	}
 
 	public void setNo(int no) {
@@ -52,20 +76,20 @@ public class HouseDealDto {
 		this.dong = dong;
 	}
 
+	public String getDongCode() {
+		return dongCode;
+	}
+
+	public void setDongCode(String dongCode) {
+		this.dongCode = dongCode;
+	}
+
 	public String getAptName() {
-		return AptName;
+		return aptName;
 	}
 
 	public void setAptName(String aptName) {
-		AptName = aptName;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
+		this.aptName = aptName;
 	}
 
 	public String getDealAmount() {
@@ -148,12 +172,34 @@ public class HouseDealDto {
 		this.rentMoney = rentMoney;
 	}
 
+	public String getLat() {
+		return lat;
+	}
+
+	public void setLat(String lat) {
+		this.lat = lat;
+	}
+
+	public String getLng() {
+		return lng;
+	}
+
+	public void setLng(String lng) {
+		this.lng = lng;
+	}
+
 	@Override
 	public String toString() {
-		return "HouseDealDto [no=" + no + ", dong=" + dong + ", AptName=" + AptName + ", code=" + code + ", dealAmount="
-				+ dealAmount + ", buildYear=" + buildYear + ", dealYear=" + dealYear + ", dealMonth=" + dealMonth
-				+ ", dealDay=" + dealDay + ", area=" + area + ", floor=" + floor + ", jibun=" + jibun + ", type=" + type
-				+ ", rentMoney=" + rentMoney + "]";
+		return "HouseDealDto [no=" + no + ", sido=" + sido + ", gugun=" + gugun + ", dong=" + dong + ", aptName="
+				+ aptName + ", dealAmount=" + dealAmount + ", buildYear=" + buildYear + ", dealYear=" + dealYear
+				+ ", dealMonth=" + dealMonth + ", dealDay=" + dealDay + ", area=" + area + ", floor=" + floor
+				+ ", jibun=" + jibun + ", type=" + type + ", rentMoney=" + rentMoney + "]";
+	}
+
+	@Override
+	public int compareTo(HouseDealDto o) {
+		// TODO Auto-generated method stub
+		return this.aptName.compareTo(o.getAptName());
 	}
 
 }

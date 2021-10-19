@@ -7,7 +7,7 @@ import java.util.List;
 import com.ssafy.dao.EnvironmentCheckDao;
 import com.ssafy.dto.EnvironmentCheckDto;
 import com.ssafy.util.DBClose;
-import com.ssafy.util.DBConnection;
+import com.ssafy.util.DBUtil;
 
 public class EnvironmentCheckDaoImpl implements EnvironmentCheckDao {
 	private final String DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -37,7 +37,7 @@ public class EnvironmentCheckDaoImpl implements EnvironmentCheckDao {
 		ResultSet rs = null;
 		List<EnvironmentCheckDto> EnvironmentCheckDtoList = new ArrayList<EnvironmentCheckDto>();
 		try {
-			conn = DBConnection.getConnection();
+			conn = DBUtil.getConnection();
 			String sql = "select * " + "from environmentcheck";
 			pstmt = conn.prepareStatement(sql);
 
@@ -64,7 +64,7 @@ public class EnvironmentCheckDaoImpl implements EnvironmentCheckDao {
 		ResultSet rs = null;
 		List<EnvironmentCheckDto> EnvironmentCheckDtoList = new ArrayList<EnvironmentCheckDto>();
 		try {
-			conn = DBConnection.getConnection();
+			conn = DBUtil.getConnection();
 			StringBuilder sql = new StringBuilder();
 			sql.append("select * " + "from environmentcheck where");
 			if (dongCode != null) {

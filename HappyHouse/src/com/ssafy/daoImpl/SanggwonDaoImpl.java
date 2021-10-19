@@ -7,7 +7,7 @@ import java.util.List;
 import com.ssafy.dao.SanggwonDao;
 import com.ssafy.dto.SanggwonDto;
 import com.ssafy.util.DBClose;
-import com.ssafy.util.DBConnection;
+import com.ssafy.util.DBUtil;
 
 public class SanggwonDaoImpl implements SanggwonDao {
 	private final String DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -37,7 +37,7 @@ public class SanggwonDaoImpl implements SanggwonDao {
 		ResultSet rs = null;
 		List<SanggwonDto> SanggwonDtoList = new ArrayList<SanggwonDto>();
 		try {
-			conn = DBConnection.getConnection();
+			conn = DBUtil.getConnection();
 			String sql = "select * " + "from sanggwon";
 			pstmt = conn.prepareStatement(sql);
 
@@ -65,7 +65,7 @@ public class SanggwonDaoImpl implements SanggwonDao {
 		ResultSet rs = null;
 		List<SanggwonDto> SanggwonDtoList = new ArrayList<SanggwonDto>();
 		try {
-			conn = DBConnection.getConnection();
+			conn = DBUtil.getConnection();
 			StringBuilder sql = new StringBuilder();
 			sql.append("select * " + "from sanggwon where ");
 			if (dongCode != null) {

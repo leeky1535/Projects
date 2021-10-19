@@ -1,34 +1,36 @@
 package com.ssafy.dto;
 
 public class UserDto {
-	private String userId;
+	private String username;
 	private String password;
 	private String name;
 	private String email;
 	private String phone;
 	private String address;
 	private String addressDetail;
-	private String favoriteDongCode;
 
-	public UserDto(String userId, String password, String name, String email, String phone, String address,
-			String addressDetail, String favoriteDongCode) {
+	public UserDto() {
+
+	}
+
+	public UserDto(String username, String password, String name, String email, String phone, String address,
+			String addressDetail) {
 		super();
-		this.userId = userId;
+		this.username = username;
 		this.password = password;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
 		this.address = address;
 		this.addressDetail = addressDetail;
-		this.favoriteDongCode = favoriteDongCode;
 	}
 
-	public String getUserId() {
-		return userId;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -67,7 +69,7 @@ public class UserDto {
 		return address;
 	}
 
-	public void setDongCode(String address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 
@@ -79,19 +81,10 @@ public class UserDto {
 		this.addressDetail = addressDetail;
 	}
 
-	public String getFavoriteDongCode() {
-		return favoriteDongCode;
-	}
-
-	public void setFavoriteDongCode(String favoriteDongCode) {
-		this.favoriteDongCode = favoriteDongCode;
-	}
-
 	@Override
 	public String toString() {
-		return "UserDto [userId=" + userId + ", password=" + password + ", name=" + name + ", email=" + email
-				+ ", phone=" + phone + ", address=" + address + ", addressDetail=" + addressDetail
-				+ ", favoriteDongCode=" + favoriteDongCode + "]";
+		return "UserDto [username=" + username + ", password=" + password + ", name=" + name + ", email=" + email
+				+ ", phone=" + phone + ", address=" + address + ", addressDetail=" + addressDetail + "]";
 	}
-	
+
 }
